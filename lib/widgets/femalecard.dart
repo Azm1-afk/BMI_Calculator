@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class MaleCard extends StatefulWidget {
-  const MaleCard({super.key});
+class Femalecard extends StatefulWidget {
+  const Femalecard({super.key});
 
   @override
-  State<MaleCard> createState() => _MaleCardState();
+  State<Femalecard> createState() => _FemalecardState();
 }
 
-class _MaleCardState extends State<MaleCard> {
+class _FemalecardState extends State<Femalecard> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -31,7 +31,7 @@ class _MaleCardState extends State<MaleCard> {
 
       child: Column(
         children: [
-          Text('Male', style: TextStyle(color: Colors.white, fontSize: 40)),
+          Text('Female', style: TextStyle(color: Colors.white, fontSize: 40)),
         ],
       ),
     );

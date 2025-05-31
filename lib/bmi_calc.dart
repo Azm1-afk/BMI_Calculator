@@ -16,14 +16,11 @@ class _MainPageState extends State<MainPage> {
 
       appBar: AppBar(
         backgroundColor: Color(0xff071c34),
-        title: Text('BMI CALCULATOR',style: TextStyle(
-          color: Colors.white
-        ),),
+        title: Text('BMI CALCULATOR', style: TextStyle(color: Colors.white)),
         centerTitle: true,
       ),
 
       body: MaleCard(),
-
     );
   }
 }
