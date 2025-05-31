@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/widgets/height_card.dart';
 import 'package:flutter/material.dart';
 import 'widgets/malecard.dart';
 
@@ -20,7 +21,7 @@ class _MainPageState extends State<MainPage> {
         centerTitle: true,
       ),
 
-      body: MaleCard(),
+      body: HeightCard(),
     );
   }
 }
