@@ -10,18 +10,26 @@ class AgeCard extends StatefulWidget {
 }
 
 class _AgeCardState extends State<AgeCard> {
-
   int _age = 20;
 
-  void incrementAge(){
-    setState(() {
-      _age++;
-    });
+  void incrementAge() {
+    if (_age > 120) {
+      return;
+    } else {
+      setState(() {
+        _age++;
+      });
+    }
   }
-  void decrementAge(){
-    setState(() {
-      _age--;
-    });
+
+  void decrementAge() {
+    if (_age < 1) {
+      return;
+    } else {
+      setState(() {
+        _age--;
+      });
+    }
   }
 
   @override
@@ -48,27 +56,51 @@ class _AgeCardState extends State<AgeCard> {
 
             const SizedBox(height: 7),
 
-            Text(_age.toString(), style: TextStyle(color: Colors.white, fontSize: 25, fontFamily: 'Montserrat')),
+            Text(
+              _age.toString(),
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 25,
+                fontFamily: 'Montserrat',
+              ),
+            ),
 
             const SizedBox(height: 13),
 
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              spacing:15,
+              spacing: 15,
               children: [
-
                 FilledButton(
                   onPressed: () {
                     incrementAge();
                   },
-                  child: Text('+', style: TextStyle(fontFamily: 'Montserrat',fontSize: 30)),
+                  style: FilledButton.styleFrom(
+                    backgroundColor: Color(0xFF363AA9),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                  ),
+                  child: Text(
+                    '+',
+                    style: TextStyle(fontFamily: 'Montserrat', fontSize: 30),
+                  ),
                 ),
 
                 FilledButton(
                   onPressed: () {
                     decrementAge();
                   },
-                  child: Text('-', style: TextStyle(fontFamily: 'Montserrat',fontSize: 30)),
+                  style: FilledButton.styleFrom(
+                    backgroundColor: Color(0xFF363AA9),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                  ),
+                  child: Text(
+                    '-',
+                    style: TextStyle(fontFamily: 'Montserrat', fontSize: 30),
+                  ),
                 ),
               ],
             ),

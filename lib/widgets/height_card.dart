@@ -8,13 +8,20 @@ class HeightCard extends StatefulWidget {
 }
 
 class _HeightCardState extends State<HeightCard> {
+
+  double _initSliderValue = 20;
+
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 140,
+      height: 180,
       width: 280,
 
-      decoration: BoxDecoration(color: Color(0xff041838)),
+      decoration: BoxDecoration(
+        color: Color(0xff041838),
+        borderRadius: BorderRadius.circular(9)
+      ),
 
       child: Center(
         child: Column(
@@ -30,23 +37,35 @@ class _HeightCardState extends State<HeightCard> {
               ),
             ),
 
-            const SizedBox(height: 10),
+            const SizedBox(height: 7),
 
             Text(
               'Enter your height below (in cm)',
               style: TextStyle(color: Colors.white),
             ),
 
-            const SizedBox(height: 2),
+            const SizedBox(height: 7),
+
+            Text(_initSliderValue.round().toString(), style: TextStyle(
+              color: Colors.white,
+              fontFamily: 'Montserrat',
+              fontSize: 25
+            ),),
+
+            const SizedBox(height: 4),
 
             Container(
-              width: 70,
-
-              child: TextField(
-                cursorColor: Colors.white,
-                textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.white), // ✅ Light text color here
-                decoration: InputDecoration(contentPadding: EdgeInsets.all(20)),
+              child:Slider(
+                value: _initSliderValue,
+                max: 250,
+                min: 0,
+                divisions: 250,
+                // label: _initSliderValue.round().toString(),
+                onChanged: (double value){
+                  setState(() {
+                    _initSliderValue = value;
+                  });
+                },
               ),
             ),
           ],

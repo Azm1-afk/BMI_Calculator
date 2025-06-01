@@ -23,7 +23,7 @@ class _MainPageState extends State<MainPage> {
         centerTitle: true,
       ),
 
-      body: AgeCard(),
+      body: HeightCard(),
     );
   }
 }

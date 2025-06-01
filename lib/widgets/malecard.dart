@@ -8,6 +8,10 @@ class MaleCard extends StatefulWidget {
 }
 
 class _MaleCardState extends State<MaleCard> {
+
+  Color _color = Color(0xff041838);
+
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,7 +22,7 @@ class _MaleCardState extends State<MaleCard> {
       width: 190,
 
       decoration: BoxDecoration(
-        color: Color(0xff041838),
+        color: _color,
         boxShadow: [
           BoxShadow(
             color: Color(0xff082952),
