@@ -24,7 +24,7 @@ class _MainPageState extends State<MainPage> {
         centerTitle: true,
       ),
 
-      body: FemaleCard(),
+      body: WeightCard(),
     );
   }
 }
