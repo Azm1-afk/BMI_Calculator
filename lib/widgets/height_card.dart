@@ -8,9 +8,7 @@ class HeightCard extends StatefulWidget {
 }
 
 class _HeightCardState extends State<HeightCard> {
-
-  double _initSliderValue = 20;
-
+  double _initSliderValue = 100;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +18,7 @@ class _HeightCardState extends State<HeightCard> {
 
       decoration: BoxDecoration(
         color: Color(0xff041838),
-        borderRadius: BorderRadius.circular(9)
+        borderRadius: BorderRadius.circular(9),
       ),
 
       child: Center(
@@ -46,22 +44,25 @@ class _HeightCardState extends State<HeightCard> {
 
             const SizedBox(height: 7),
 
-            Text(_initSliderValue.round().toString(), style: TextStyle(
-              color: Colors.white,
-              fontFamily: 'Montserrat',
-              fontSize: 25
-            ),),
+            Text(
+              _initSliderValue.round().toString(),
+              style: TextStyle(
+                color: Colors.white,
+                fontFamily: 'Montserrat',
+                fontSize: 25,
+              ),
+            ),
 
             const SizedBox(height: 4),
 
             Container(
-              child:Slider(
+              child: Slider(
                 value: _initSliderValue,
                 max: 250,
-                min: 0,
-                divisions: 250,
+                min: 100,
+                divisions: 150,
                 // label: _initSliderValue.round().toString(),
-                onChanged: (double value){
+                onChanged: (double value) {
                   setState(() {
                     _initSliderValue = value;
                   });

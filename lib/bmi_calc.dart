@@ -1,4 +1,5 @@
 import 'package:bmi_calculator/widgets/age_card.dart';
+import 'package:bmi_calculator/widgets/femalecard.dart';
 import 'package:bmi_calculator/widgets/height_card.dart';
 import 'package:bmi_calculator/widgets/weight_card.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +24,7 @@ class _MainPageState extends State<MainPage> {
         centerTitle: true,
       ),
 
-      body: HeightCard(),
+      body: FemaleCard(),
     );
   }
 }
