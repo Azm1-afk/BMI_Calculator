@@ -8,11 +8,26 @@ class WeightCard extends StatefulWidget {
 }
 
 class _WeightCardState extends State<WeightCard> {
+  int _weight = 20;
+
+  void incrementWeight() {
+    setState(() {
+      _weight++;
+    });
+  }
+  void decrementWeight(){
+    setState(() {
+      _weight--;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 140,
-      width: 280,
+      height: 173,
+      width: 270,
+
+      color: Color(0xff041838),
 
       child: Center(
         child: Column(
@@ -20,12 +35,39 @@ class _WeightCardState extends State<WeightCard> {
             const SizedBox(height: 15),
 
             Text(
-              'Weight',
+              'Weight (kg)',
               style: TextStyle(
                 fontSize: 20,
                 color: Colors.white,
                 fontFamily: 'Montserrat',
               ),
+            ),
+
+            const SizedBox(height: 7),
+
+            Text(_weight.toString(), style: TextStyle(color: Colors.white, fontSize: 25, fontFamily: 'Montserrat')),
+
+            const SizedBox(height: 13),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              spacing:15,
+              children: [
+
+                FilledButton(
+                  onPressed: () {
+                    incrementWeight();
+                  },
+                  child: Text('+', style: TextStyle(fontFamily: 'Montserrat',fontSize: 30)),
+                ),
+
+                FilledButton(
+                  onPressed: () {
+                    decrementWeight();
+                  },
+                  child: Text('-', style: TextStyle(fontFamily: 'Montserrat',fontSize: 30)),
+                ),
+              ],
             ),
           ],
         ),
