@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class HeightCard extends StatefulWidget {
-  const HeightCard({super.key});
+
+  final Function(double) onHeightChanged;
+
+  const HeightCard({super.key, required this.onHeightChanged});
 
   @override
   State<HeightCard> createState() => _HeightCardState();
@@ -69,6 +72,7 @@ class _HeightCardState extends State<HeightCard> {
                   setState(() {
                     _initSliderValue = value;
                   });
+                  widget.onHeightChanged(value);
                 },
               ),
             ),

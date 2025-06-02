@@ -5,8 +5,6 @@ import 'package:bmi_calculator/widgets/weight_card.dart';
 import 'package:flutter/material.dart';
 import 'widgets/malecard.dart';
 
-// place the widgets in the main page UI.
-//
 // then the next step will be get the user input values and calculate the BMI.
 
 class MainPage extends StatefulWidget {
@@ -17,6 +15,23 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+
+  double height = 100;
+  // int weight = 45;
+
+  void updateHeight(double newHeight){
+    setState(() {
+      height = newHeight;
+    });
+  }
+
+  // void updateWeight(int newWeight){
+  //   setState(() {
+  //     newWeight = weight;
+  //   });
+  // }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,13 +55,17 @@ class _MainPageState extends State<MainPage> {
             ),
           ),
 
-          HeightCard(),
+          HeightCard(
+            onHeightChanged: updateHeight,
+          ),
 
           Container(
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                WeightCard(),
+                WeightCard(
+
+                ),
                 AgeCard()
               ],
             ),
