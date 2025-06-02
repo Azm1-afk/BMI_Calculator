@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class WeightCard extends StatefulWidget {
 
-  const WeightCard({super.key});   // NEW
+  const WeightCard({super.key});
 
   @override
   State<WeightCard> createState() => _WeightCardState();
