@@ -7,7 +7,9 @@ class AgeCard extends StatefulWidget {
 
   @override
   State<AgeCard> createState() => _AgeCardState();
+
 }
+
 
 class _AgeCardState extends State<AgeCard> {
   int _age = 20;
@@ -34,11 +36,18 @@ class _AgeCardState extends State<AgeCard> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 173,
-      width: 270,
 
-      color: Color(0xff041838),
+    double deviceWidth = MediaQuery.of(context).size.width;
+
+    return Container(
+      margin: EdgeInsets.only(left: 35, top: 28),
+      height: 175,
+      width: deviceWidth*0.4,
+
+      decoration: BoxDecoration(
+          color: Color(0xff041838),
+          borderRadius: BorderRadius.circular(5)
+      ),
 
       child: Center(
         child: Column(

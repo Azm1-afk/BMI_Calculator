@@ -15,7 +15,7 @@ class _FemaleCardState extends State<FemaleCard> {
     return GestureDetector(
       onTap: () {},
       child: Container(
-        margin: EdgeInsets.only(left: 35, top: 35),
+        margin: EdgeInsets.only(left: 35, top: 35, bottom: 25),
         padding: EdgeInsets.all(20),
 
         height: 215,

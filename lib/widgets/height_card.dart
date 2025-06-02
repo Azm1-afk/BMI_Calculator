@@ -12,9 +12,12 @@ class _HeightCardState extends State<HeightCard> {
 
   @override
   Widget build(BuildContext context) {
+
+    double deviceWidth = MediaQuery.of(context).size.width;
+
     return Container(
       height: 180,
-      width: 280,
+      width: deviceWidth*0.86,
 
       decoration: BoxDecoration(
         color: Color(0xff041838),

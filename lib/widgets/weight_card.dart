@@ -28,11 +28,19 @@ class _WeightCardState extends State<WeightCard> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 173,
-      width: 270,
 
-      color: Color(0xff041838),
+    double deviceWidth = MediaQuery.of(context).size.width;
+
+    return Container(
+
+      decoration: BoxDecoration(
+        color: Color(0xff041838),
+        borderRadius: BorderRadius.circular(5)
+      ),
+
+      margin: EdgeInsets.only(left: 35, top: 28),
+      height: 175,
+      width: deviceWidth*0.4,
 
       child: Center(
         child: Column(
