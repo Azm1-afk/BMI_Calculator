@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:bmi_calculator/result_page.dart';
 import 'package:bmi_calculator/widgets/age_card.dart';
 import 'package:bmi_calculator/widgets/femalecard.dart';
@@ -16,7 +15,7 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  double height = 100; // this value is showing when calling print(height)
+  double height = 100; // this value is showing when calling print(height)✅
   int weight = 40; // we need to pass this value into the weight card widget ✅
   int age = 20; // we need to pass this value into the age card widget ✅
 
@@ -108,12 +107,12 @@ class _MainPageState extends State<MainPage> {
           FilledButton(
             onPressed: () {
               num requiredHeight = pow(height / 100, 2);
-              num bmi = weight / requiredHeight;
+              num requiredBMI = weight / requiredHeight;
               // print("Your BMI is $bmi");
 
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => ResultPage()),
+                MaterialPageRoute(builder: (context) => ResultPage(bmi: requiredBMI)),
               );
             },
             style: FilledButton.styleFrom(

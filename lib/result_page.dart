@@ -2,7 +2,33 @@ import 'package:bmi_calculator/widgets/result_card.dart';
 import 'package:flutter/material.dart';
 
 class ResultPage extends StatelessWidget {
-  const ResultPage({super.key});
+
+  String bmiCategory(){
+    if (bmi < 18.5) {
+      return "UNDERWEIGHT";
+    } else if (bmi >= 18.5 && bmi < 24.9) {
+      return "NORMAL";
+    } else if (bmi >= 25 && bmi < 29.9) {
+      return "OVERWEIGHT";
+    } else {
+      return "OBESE";
+    }
+  }
+
+  String getRecommendation(){
+    if (bmi < 18.5) {
+      return "You are underweight and need to eat more.";
+    } else if (bmi >= 18.5 && bmi < 24.9) {
+      return "Your BMI is within the perfect range. You need not make any changes.";
+    } else if (bmi >= 25 && bmi < 29.9) {
+      return "Your BMI is above the normal range. You may need to consider eating less";
+    } else {
+      return "Your BMI is above the normal range. You may need to consider eating less";
+    }
+  }
+  final num bmi;
+  const ResultPage({super.key, required this.bmi});
+
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +67,7 @@ class ResultPage extends StatelessWidget {
               height: 8.2,
             ),
 
-            ResultCard()
+            ResultCard(passedBMI: bmi, recommendation: getRecommendation(), categoryPassed: bmiCategory(),)
 
           ],
         ),
