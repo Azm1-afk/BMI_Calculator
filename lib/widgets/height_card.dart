@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
 class HeightCard extends StatefulWidget {
-
   final Function(double) onHeightChanged;
-
   const HeightCard({super.key, required this.onHeightChanged});
 
   @override

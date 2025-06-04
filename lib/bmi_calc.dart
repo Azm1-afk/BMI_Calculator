@@ -1,11 +1,11 @@
+import 'dart:math';
+
 import 'package:bmi_calculator/widgets/age_card.dart';
 import 'package:bmi_calculator/widgets/femalecard.dart';
 import 'package:bmi_calculator/widgets/height_card.dart';
 import 'package:bmi_calculator/widgets/weight_card.dart';
 import 'package:flutter/material.dart';
 import 'widgets/malecard.dart';
-
-// then the next step will be get the user input values and calculate the BMI.
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -15,12 +15,11 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  double height = 100; // this value is showing when calling print(height)
+  int weight = 40; // we need to pass this value into the weight card widget ✅
+  int age = 20; // we need to pass this value into the age card widget ✅
 
-  double height = 100;
-  int weight = 40;    // we need to pass this value into the weight card widget ✅
-  int age = 20;     // we need to pass this value into the age card widget ✅
-
-  void updateHeight(double newHeight){
+  void updateHeight(double newHeight) {
     setState(() {
       height = newHeight;
     });
@@ -78,16 +77,11 @@ class _MainPageState extends State<MainPage> {
           Container(
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                MaleCard(),
-                FemaleCard()
-              ],
+              children: [MaleCard(), FemaleCard()],
             ),
           ),
 
-          HeightCard(
-            onHeightChanged: updateHeight,
-          ),
+          HeightCard(onHeightChanged: updateHeight),
 
           Container(
             child: Row(
@@ -103,9 +97,28 @@ class _MainPageState extends State<MainPage> {
                   onIncrement: incrementAge,
                   onDecrement: decrementAge,
                   age: age,
-
-                )
+                ),
               ],
+            ),
+          ),
+
+          SizedBox(height: 25),
+
+          FilledButton(
+            onPressed: () {
+              num requiredHeight = pow(height/100, 2);
+              num bmi = weight/requiredHeight;
+              print("Your BMI is $bmi");
+            },
+            style: FilledButton.styleFrom(
+              backgroundColor: Color(0xFF363AA9),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(4),
+              ),
+            ),
+            child: Text(
+              'Calculate',
+              style: TextStyle(fontSize: 20, fontFamily: 'Montserrat'),
             ),
           ),
         ],
