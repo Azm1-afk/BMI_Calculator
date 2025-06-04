@@ -1,47 +1,30 @@
 import 'package:flutter/material.dart';
 
-class WeightCard extends StatefulWidget {
+class WeightCard extends StatelessWidget {
+  final VoidCallback onIncrement;
+  final VoidCallback onDecrement;
+  final int weight;
 
-  const WeightCard({super.key});
-
-  @override
-  State<WeightCard> createState() => _WeightCardState();
-}
-
-class _WeightCardState extends State<WeightCard> {
-  int _weight = 45;
-
-  void incrementWeight() {
-    setState(() {
-      _weight++;
-    });
-  }
-
-  void decrementWeight() {
-    if (_weight < 10) {
-      return;
-    } else {
-      setState(() {
-        _weight--;
-      });
-    }
-  }
+  const WeightCard({
+    super.key,
+    required this.onIncrement,
+    required this.onDecrement,
+    required this.weight,
+  });
 
   @override
   Widget build(BuildContext context) {
-
     double deviceWidth = MediaQuery.of(context).size.width;
 
     return Container(
-
       decoration: BoxDecoration(
         color: Color(0xff041838),
-        borderRadius: BorderRadius.circular(5)
+        borderRadius: BorderRadius.circular(5),
       ),
 
       margin: EdgeInsets.only(left: 35, top: 28),
       height: 175,
-      width: deviceWidth*0.4,
+      width: deviceWidth * 0.4,
 
       child: Center(
         child: Column(
@@ -60,7 +43,7 @@ class _WeightCardState extends State<WeightCard> {
             const SizedBox(height: 7),
 
             Text(
-              _weight.toString(),
+              weight.toString(),
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 25,
@@ -75,9 +58,7 @@ class _WeightCardState extends State<WeightCard> {
               spacing: 15,
               children: [
                 FilledButton(
-                  onPressed: () {
-                    incrementWeight();
-                  },
+                  onPressed: onIncrement,
                   child: Text(
                     '+',
                     style: TextStyle(fontFamily: 'Montserrat', fontSize: 30),
@@ -85,9 +66,7 @@ class _WeightCardState extends State<WeightCard> {
                 ),
 
                 FilledButton(
-                  onPressed: () {
-                    decrementWeight();
-                  },
+                  onPressed: onDecrement,
                   child: Text(
                     '-',
                     style: TextStyle(fontFamily: 'Montserrat', fontSize: 30),

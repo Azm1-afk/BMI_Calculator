@@ -17,7 +17,8 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
 
   double height = 100;
-  // int weight = 45;
+  int weight = 40;    // we need to pass this value into the weight card widget ✅
+  int age = 20;     // we need to pass this value into the age card widget ✅
 
   void updateHeight(double newHeight){
     setState(() {
@@ -25,12 +26,41 @@ class _MainPageState extends State<MainPage> {
     });
   }
 
-  // void updateWeight(int newWeight){
-  //   setState(() {
-  //     newWeight = weight;
-  //   });
-  // }
+  void incrementWeight() {
+    setState(() {
+      weight++;
+    });
+  }
 
+  void decrementWeight() {
+    if (weight < 10) {
+      return;
+    } else {
+      setState(() {
+        weight--;
+      });
+    }
+  }
+
+  void incrementAge() {
+    if (age > 120) {
+      return;
+    } else {
+      setState(() {
+        age++;
+      });
+    }
+  }
+
+  void decrementAge() {
+    if (age < 1) {
+      return;
+    } else {
+      setState(() {
+        age--;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -64,9 +94,17 @@ class _MainPageState extends State<MainPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 WeightCard(
-
+                  onIncrement: incrementWeight,
+                  onDecrement: decrementWeight,
+                  weight: weight,
                 ),
-                AgeCard()
+
+                AgeCard(
+                  onIncrement: incrementAge,
+                  onDecrement: decrementAge,
+                  age: age,
+
+                )
               ],
             ),
           ),
