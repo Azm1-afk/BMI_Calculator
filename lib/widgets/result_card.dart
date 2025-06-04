@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/bmi_calc.dart';
 import 'package:flutter/material.dart';
 
 class ResultCard extends StatelessWidget {
@@ -64,7 +65,9 @@ class ResultCard extends StatelessWidget {
             const SizedBox(height: 25),
 
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => MainPage()));
+              },
               child: Text('Re-calculate?', style: TextStyle(color: Colors.red)),
             ),
           ],

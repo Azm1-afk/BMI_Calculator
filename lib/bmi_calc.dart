@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:bmi_calculator/result_page.dart';
 import 'package:bmi_calculator/widgets/age_card.dart';
 import 'package:bmi_calculator/widgets/femalecard.dart';
 import 'package:bmi_calculator/widgets/height_card.dart';
@@ -106,9 +107,14 @@ class _MainPageState extends State<MainPage> {
 
           FilledButton(
             onPressed: () {
-              num requiredHeight = pow(height/100, 2);
-              num bmi = weight/requiredHeight;
-              print("Your BMI is $bmi");
+              num requiredHeight = pow(height / 100, 2);
+              num bmi = weight / requiredHeight;
+              // print("Your BMI is $bmi");
+
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ResultPage()),
+              );
             },
             style: FilledButton.styleFrom(
               backgroundColor: Color(0xFF363AA9),
